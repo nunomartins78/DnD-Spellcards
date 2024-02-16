@@ -1,4 +1,4 @@
-package Spellcards.dto;
+package SpellCards.dto;
 
 import lombok.*;
 

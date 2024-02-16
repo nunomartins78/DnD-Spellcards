@@ -1,7 +1,7 @@
-package Spellcards.controller;
+package SpellCards.controller;
 
-import Spellcards.dto.CardDTO;
-import Spellcards.service.CardService;
+import SpellCards.dto.CardDTO;
+import SpellCards.service.CardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

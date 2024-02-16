@@ -1,8 +1,8 @@
-package Spellcards.converter;
+package SpellCards.converter;
 
-import Spellcards.dto.CardDTO;
+import SpellCards.dto.CardDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import Spellcards.model.Card;
+import SpellCards.model.Card;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

@@ -1,4 +1,4 @@
-package Spellcards.model;
+package SpellCards.model;
 
 import jakarta.persistence.*;
 import lombok.*;
