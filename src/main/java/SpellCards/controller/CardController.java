@@ -24,25 +24,36 @@ public class CardController {
     }
 
     @GetMapping("")
-    public ResponseEntity <List<CardDTO>> createCard(){
+    public ResponseEntity<List<CardDTO>> getAllCards(){
         List<CardDTO> card = cardService.getAllCards();
         return new ResponseEntity<>(card, HttpStatus.OK);
     }
 
-    @GetMapping("/name")
+/*    @GetMapping("/{id}")
+    public ResponseEntity<CardDTO> getCardById(@PathVariable int id){
+        CardDTO card = cardService.getCardById(id);
+        return new ResponseEntity<>(card, HttpStatus.OK);
+    }
+    @GetMapping("/{id}")
+    public ResponseEntity <CardDTO> getCardById(@PathVariable int id){
+        CardDTO card = cardService.getCardById(id);
+        return new ResponseEntity<>(card, HttpStatus.OK);
+    }*/
+
+    @GetMapping("/name/{name}")
     public ResponseEntity<List<CardDTO>> getByName(@PathVariable String name){
         List<CardDTO> card = cardService.getCardByName(name);
         return new ResponseEntity<>(card, HttpStatus.OK);
     }
 
-    @GetMapping("/level")
+    @GetMapping("/level/{level}")
     public ResponseEntity<List<CardDTO>> getByLevel (@PathVariable String level){
         List<CardDTO> card = cardService.getCardsByLevel(level);
         return new ResponseEntity<>(card, HttpStatus.OK);
 
     }
 
-    @GetMapping
+    @GetMapping("/school/{school}")
     public ResponseEntity<List<CardDTO>> getBySchool(@PathVariable String school){
         List<CardDTO> card = cardService.getCardBySchool(school);
         return new ResponseEntity<>(card, HttpStatus.OK);
@@ -77,7 +88,7 @@ public class CardController {
         return new ResponseEntity<>(updatedCard, HttpStatus.CREATED);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public ResponseEntity<CardDTO> deleteCard(@PathVariable Long id){
         cardService.deleteCard(id);
         return new ResponseEntity<>(HttpStatus.OK);
