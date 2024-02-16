@@ -1,6 +1,6 @@
-package Spellcards.service;
+package SpellCards.service;
 
-import Spellcards.dto.CardDTO;
+import SpellCards.dto.CardDTO;
 
 import java.util.List;
 
@@ -16,7 +16,13 @@ public interface CardService {
 
     List<CardDTO> getCardBySchool(String school);
 
-    CardDTO getCardByCastingTime(String castingTime);
+    List<CardDTO> getCardByCastingTime(String castingTime);
+
+    List<CardDTO> getCardByRange(String range);
+
+    List<CardDTO> getCardByDuration(String duration);
+
+    List<CardDTO> getCardByClass(String classes);
 
     List<CardDTO> getAllCards();
 

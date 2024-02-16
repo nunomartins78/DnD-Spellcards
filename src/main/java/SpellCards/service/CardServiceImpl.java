@@ -1,13 +1,12 @@
-package Spellcards.service;
+package SpellCards.service;
 
-import Spellcards.converter.CardConverter;
-import Spellcards.dto.CardDTO;
-import Spellcards.model.Card;
-import Spellcards.repository.CardRepository;
+import SpellCards.converter.CardConverter;
+import SpellCards.dto.CardDTO;
+import SpellCards.model.Card;
+import SpellCards.repository.CardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class CardServiceImpl implements CardService{
 
@@ -38,7 +37,7 @@ public class CardServiceImpl implements CardService{
         List<Card> cards = cardRepository.findByName(name);
         return cards.stream()
                 .map(cardConverter::fromCardEntityToCardDTO)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
@@ -46,7 +45,7 @@ public class CardServiceImpl implements CardService{
         List<Card> cards = cardRepository.findByLevel(level);
         return cards.stream()
                 .map(cardConverter::fromCardEntityToCardDTO)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
@@ -54,16 +53,40 @@ public class CardServiceImpl implements CardService{
         List<Card> cards = cardRepository.findBySchool(school);
         return cards.stream()
                 .map(cardConverter::fromCardEntityToCardDTO)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
-    public CardDTO getCardByCastingTime (String castingTime){
-        Card card = cardRepository.findByCastingTime(castingTime);
-        return cardConverter.fromCardEntityToCardDTO(card);
+    public List<CardDTO> getCardByCastingTime (String castingTime){
+        List<Card> cards = cardRepository.findByCastingTime(castingTime);
+        return cards.stream()
+                .map(cardConverter::fromCardEntityToCardDTO)
+                .toList();
     }
 
+    @Override
+    public List<CardDTO> getCardByRange (String range){
+        List<Card> cards = cardRepository.findByRange(range);
+        return cards.stream()
+                .map(cardConverter::fromCardEntityToCardDTO)
+                .toList();
+    }
 
+    @Override
+    public List<CardDTO> getCardByDuration (String duration){
+        List<Card> cards = cardRepository.findByDuration(duration);
+        return cards.stream()
+                .map(cardConverter::fromCardEntityToCardDTO)
+                .toList();
+    }
+
+    @Override
+    public List<CardDTO> getCardByClass (String classes){
+        List<Card> cards = cardRepository.findByClasses(classes);
+        return cards.stream()
+                .map(cardConverter::fromCardEntityToCardDTO)
+                .toList();
+    }
 
     @Override
     public List<CardDTO> getAllCards(){
