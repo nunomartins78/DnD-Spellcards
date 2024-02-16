@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: DnD_SpellCards_container
+    environment:
+      MYSQL_ROOT_PASSWORD: administrador
+      MYSQL_DATABASE: DnD_SpellCards
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: test
+    ports:
+      - "3306:3306"
